@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Allows custom permissions for Agentforce Agent : Support_Agent&apos;s agent user : support_agent@00dgk00000mlmk1397725852.ext.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Support_Agent821555339 Permissions</label>
+    <license>Einstein Agent</license>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Case</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+</PermissionSet>
