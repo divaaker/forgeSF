@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>DateProcessed</fullName>
+    </fields>
+    <fields>
+        <fullName>ErrorMessage</fullName>
+    </fields>
+    <fields>
+        <fullName>MeetingPlaybookStageId</fullName>
+        <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+    </fields>
+    <searchLayouts>
+        <customTabListAdditionalFields>MeetingPlaybookStage</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DateProcessed</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>MeetingPlaybookStage</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>DateProcessed</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>
