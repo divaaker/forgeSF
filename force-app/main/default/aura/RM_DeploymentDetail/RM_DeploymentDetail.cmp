@@ -1,0 +1,410 @@
+<aura:component controller="RM_DeploymentDetails" implements="force:appHostable,force:hasRecordId" >
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <lightning:spinner aura:id="spinnerId" alternativeText="Loading" variant="brand" class="slds-hide" />
+    
+    <aura:attribute name="deployDetailListsuccess" type="RM_DeploymentDetail__c[]" />
+    <aura:attribute name="deployDetailListfailure" type="RM_DeploymentDetail__c[]" />
+    
+    <aura:attribute name="spinner" type="boolean" default="FALSE"/>
+    <aura:attribute name="paginationListSuccess" type="RM_DeploymentDetail__c[]"/>
+    <aura:attribute name="pageSizeSuccess" type="Integer" default="5"/>
+    <aura:attribute name="totalSizeSuccess" type="Integer"/>
+    <aura:attribute name="startSuccess" type="Integer" />
+    <aura:attribute name="endSuccess" type="Integer"/>
+    
+    <aura:attribute name="DeploymentRecordId" type="String" default='' />
+    <aura:attribute name="deploymentDetailRecordId" type="string"/>
+    <aura:attribute name="updateId" type="string"/>
+    <aura:attribute name="rollbackDetailRecordId" type="string"/>
+    <aura:attribute name="myBool" type="Boolean" default="false"/>
+    <aura:attribute name="myBool1" type="Boolean" default="false"/>
+    <aura:attribute name="rollbackpackageZip" type="String" default=''/>
+    <aura:attribute name="destructivepackagezip" type="String" default=''/>
+    
+    <aura:attribute name="paginationListFailure" type="RM_DeploymentDetail__c[]"/>
+    <aura:attribute name="pageSizeFailure" type="Integer" default="5"/>
+    <aura:attribute name="totalSizeFailure" type="Integer"/>
+    <aura:attribute name="startFailure" type="Integer" />
+    <aura:attribute name="endFailure" type="Integer"/>
+    <aura:attribute name="clonepopup" type="boolean" default="false" />
+    
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    
+    <aura:attribute name="selecteddeploymentRecordId" type="string" default="" />
+    
+    <aura:attribute name="DeployPopup" type="boolean" default="false"/>
+    <aura:attribute name="quickpopup" type="boolean" default="false"/>
+    <aura:attribute name="deployDetail" type="RM_DeploymentDetail__c" />
+    <aura:attribute name="selectedRecord" type="string" />
+    <aura:attribute name="rollbackrecord" type="string" />
+    
+    <ltng:require scripts="{!join(',', $Resource.jszipjs, $Resource.jszipmin, $Resource.fileSaverJs)}"></ltng:require>
+    <!--Attribute to store All Metadata for an org-->
+    <aura:attribute name="MetadataHeader_alldata" type="object" />   
+    <aura:attribute name="selectedValue" type="String" access="PRIVATE"/>
+    <aura:attribute name="selectedMetaDataType" type="String" access="Public"/>
+    <aura:attribute name="packageZipFile" type="String" default=''/>
+    <aura:attribute name="quickdatadeploy" type="String" default=''/>
+    <aura:attribute name="rollbackdatadeploy" type="String" default=''/>
+    <aura:attribute name="deletedatadeploy" type="String" default=''/>
+    <aura:attribute name="destructiveMap" type="List" default='[]'/>
+    <aura:attribute name="rollbackMap" type="List" default='[]'/>
+    <aura:attribute name="destcmp" type="List" default='[]'/>
+    
+    <aura:attribute name="retrieveResult" type="String" default=''/> 
+    <aura:attribute name="SourceOrg" type="String" default='No Value'/> 
+    <aura:attribute name="DestinationOrg" type="String" default='No Value'/>
+    <aura:attribute name="DestinationUser" type="String" default='No Value'/>    
+    <aura:attribute name="metadatalength" type="Integer" default="0"/>
+    <!--Attributr to store selected metadata-->
+    <aura:attribute name="SelectedMetadataHeader_alldata" type="object" />   
+    <!--Attribute to store current selected metadata-->
+    <aura:attribute name="SelectedMetadataMembersMap" type="List" default='[]'/> 
+    
+    <aura:attribute name="key" type="String" />
+    
+    <!-- test class run component attributes -->
+    <aura:attribute name="testValue" type="String"/>
+    <aura:attribute name="testData" type="String"/>
+    <aura:attribute name="testclass" type="String"/>
+    <aura:attribute name="toggleEng" type="boolean" default="false"/>
+    <aura:attribute name="testRunPopup" type="boolean" default="false"/>
+    <aura:attribute name="depbool" type="boolean" default="true"/>
+    
+    <aura:if isTrue="{! v.depbool}">
+        <div class="slds-float--right">
+     <lightning:input type="text" name="searchKey" label="Enter" class="slds-container_small" aura:id="searchKey" onchange="{!c.searchKeyChange}" placeholder="Search" variant="label-hidden" />
+        </div>
+    <div  style="text-align: center">
+        <h1 style="font-size:20px;">Deployment Success</h1>      
+    </div>
+    <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+        <thead>
+            <tr class="slds-text-heading_label">
+                <th scope="col"><div class="slds-truncate" title="Id">Deployment_No</div></th>
+                <th scope="col"><div class="slds-truncate" title="Id">Deployment_Name</div></th>
+                <th scope="col"><div class="slds-truncate" title="Id">Deployment_Id</div></th>
+                <th scope="col"><div class="slds-truncate" title="Date">Created Date</div></th>
+                <th scope="col"><div class="slds-truncate" title="Status">Status</div></th>
+                <!--<th scope="col"><div class="slds-truncate" title="TestCompleted"> TestCompleted</div></th>
+                <th scope="col"><div class="slds-truncate" title="TotalTest">TotalTest</div></th>-->
+                <th scope="col"><div class="slds-truncate" title="Action">Action</div></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.paginationListSuccess}" var="deploy">
+                <tr>
+                    <td><div class="slds-truncate" title="{!deploy.Deployment_No__c	}" >{!deploy.Deployment_No__c}</div></td>
+                    <td><div class="slds-truncate" title="{!deploy.Name	}" >{!deploy.Name}</div></td>
+                    <td><div class="slds-truncate" title="{!deploy.Deployment_Id__c	}" >{!deploy.Deployment_Id__c}</div></td>
+                    <td><div class="slds-truncate" title="{!deploy.Created_Date__c}" >{!deploy.Created_Date__c}</div></td>
+                    <td><div class="slds-truncate" title="{!deploy.Status__c}" >{!deploy.Status__c}</div></td>
+                    <!--<td><div class="slds-truncate"  title="{!deploy.TestCompleted__c}">{!deploy.TestCompleted__c}</div></td>-->
+                    <!--<td><div class="slds-truncate"  title="{!deploy.TotalTest__c}">{!deploy.TotalTest__c}</div></td>-->
+                    <!--<td><button class="slds-button slds-button_neutral" onclick="{!c.viewDetails}" data-id="{!deploy.Id}">View Detail</button>                        
+                    </td>-->
+                    <aura:if isTrue="{!deploy.Status__c ==  'Success'}">
+                    <td><button class="slds-button slds-button_neutral" onclick="{!c.rollbackmetadata}" data-id="{!deploy.Id}">Rollback</button>
+                    <button class="slds-button slds-button_neutral" onclick="{!c.openclonepopup}" data-id="{!deploy.Id}">Clone</button></td>
+                	</aura:if>
+                    <aura:if isTrue="{!deploy.Status__c ==  'Validated'}">
+                    <td><button class="slds-button slds-button_neutral" onclick="{!c.quickdeloypopup}" data-id="{!deploy.Id}">Deploy</button></td>
+                	</aura:if>
+                 </tr>
+            </aura:iteration>
+            
+        </tbody>
+    </table>
+    <div  style="text-align: center">
+        <lightning:button  label="First" disabled="{!v.startSuccess == 0}"  onclick="{!c.firstSuccess}" />
+        
+        <lightning:button  label="Previous" disabled="{!v.startSuccess == 0}"  onclick="{!c.previousSuccess}" />
+        
+        <lightning:button  label="Next" disabled="{!v.endSuccess >= v.totalSizeSuccess}" onclick="{!c.nextSuccess}" />
+        
+        <lightning:button  label="Last" disabled="{!v.endSuccess >= v.totalSizeSuccess}" onclick="{!c.lastSuccess}"/>
+    </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <div  style="text-align: center">
+        <div class="slds-float--right">
+        <lightning:input type="text" name="searchKey1" label="Enter" class="slds-container_small" aura:id="searchKey1" onchange="{!c.searchKeyChange1}" placeholder="Search" variant="label-hidden" />
+        </div>
+        <h1 style="font-size:20px;">Deployment Failure</h1>      
+    </div>
+    <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+        <thead>
+            <tr class="slds-text-heading_label">
+                <th scope="col"><div class="slds-truncate" title="Id">Deployment_No</div></th>
+                <th scope="col"><div class="slds-truncate" title="Id">Deployment_Name</div></th>
+                <th scope="col"><div class="slds-truncate" title="Id">Deployment_Id</div></th>
+                <th scope="col"><div class="slds-truncate" title="Date">Date</div></th>
+                <th scope="col"><div class="slds-truncate" title="Status">Status</div></th>
+                <!--<th scope="col"><div class="slds-truncate" title="TestCompleted"> TestCompleted</div></th>
+                <th scope="col"><div class="slds-truncate" title="TotalTest">TotalTest</div></th>-->
+                <th scope="col"><div class="slds-truncate" title="Action">Action</div></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.paginationListFailure}" var="deploy">
+                <tr>
+                    <td><div class="slds-truncate" title="{!deploy.Deployment_No__c	}" >{!deploy.Deployment_No__c}</div></td>
+                    <td><div class="slds-truncate" title="{!deploy.Name	}" >{!deploy.Name}</div></td>
+                    <td><div class="slds-truncate" title="{!deploy.Deployment_Id__c	}" >{!deploy.Deployment_Id__c}</div></td>
+                    <td><div class="slds-truncate" title="{!deploy.Created_Date__c}" >{!deploy.Created_Date__c}</div></td>
+                    <td><div class="slds-truncate" title="{!deploy.Status__c}" >{!deploy.Status__c}</div></td>
+                    <!--<td><div class="slds-truncate"  title="{!deploy.TestCompleted__c}">{!deploy.TestCompleted__c}</div></td>-->
+                    <!--<td><div class="slds-truncate"  title="{!deploy.TotalTest__c}">{!deploy.TotalTest__c}</div></td>-->
+                    <td><button class="slds-button slds-button_neutral" onclick="{!c.viewDetails}" data-id="{!deploy.Id}">View Details</button>
+                    <button class="slds-button slds-button_neutral" onclick="{!c.openclonepopup}" data-id="{!deploy.Id}">Clone</button></td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+    <div  style="text-align: center">
+        
+        <lightning:button  label="First" disabled="{!v.startFailure == 0}"  onclick="{!c.firstFailure}" />
+        
+        <lightning:button  label="Previous" disabled="{!v.startFailure == 0}"  onclick="{!c.previousFailure}" />
+        
+        <lightning:button  label="Next" disabled="{!v.endFailure >= v.totalSizeFailure}" onclick="{!c.nextFailure}" />
+        
+        <lightning:button  label="Last" disabled="{!v.endFailure>= v.totalSizeFailure}" onclick="{!c.lastFailure}"/>
+    </div>
+    </aura:if>
+    <aura:if isTrue="{!v.DeployPopup}">
+        <div class="demo-only" style="height: 600px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Header of Modal -->
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Deployment Test Errors</h2>
+                    </header>
+                    <!-- Body of Modal -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Test Error">Test Error</div></th>
+                                    <td data-label="Test Error">
+                                        <div class="slds-truncate" title="{!v.deployDetail.Test_Error__c}">{!v.deployDetail.Test_Error__c}</div>
+                                    </td>
+                                </tr>
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Component Error">Component Error</div></th>
+                                    <td data-label="Component Error">
+                                        <div class="slds-cell-wrap" title="{!v.deployDetail.Deployment_Error__c}">{!v.deployDetail.Deployment_Error__c}</div>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <!-- Footer of Modal -->
+                    <footer class="slds-modal__footer">
+                        <lightning:button  label="Close" title="Base action" onclick="{! c.closeModal }"/>
+                    </footer>
+                </div>
+            </section>
+            <!-- Backdrop to set background slightly opaque. -->
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.quickpopup}">
+        
+        <!-- Modal/Popup Box starts here-->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box Header Starts here-->
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">QuickDeploy Popup</h2>
+                </header>
+                <!--Modal/Popup Box Body Starts here-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <aura:if isTrue="{!v.deploymentDetailRecordId}">
+                            <c:RM_UserStorydeploymentDetail RecordId = "{!v.deploymentDetailRecordId}" />
+                        </aura:if>
+                    <p><b>Are you sure to Deploy Metadata?
+                        </b>
+                    </p>
+                </div>
+                <!--Modal/Popup Box Footer Starts here-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral"
+                                      label="No"
+                                      title="Cancel"
+                                      onclick="{! c.closequickModel }"/>
+                    <lightning:button variant="brand"
+                                      label="Yes"
+                                      title="OK"
+                                      onclick="{!c.quickdatadeployPackage}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.isModalOpen}">
+        
+        <!-- Modal/Popup Box starts here-->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box Header Starts here-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.closeModel }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">RollBack Popup</h2>
+                </header>
+                <!--Modal/Popup Box Body Starts here-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <aura:if isTrue="{!v.rollbackDetailRecordId}">
+                        <c:RM_RollbackDeploymentDetail RecordId = "{!v.rollbackDetailRecordId}" />
+                    </aura:if>
+                    <p><b>Are you sure to Rollback Metadata?
+                        </b>
+                    </p>
+                    <ui:inputCheckbox aura:id="checkbox" label="Destructive Changes" change="{!c.onCheck}"/>
+                </div>
+                <!--Modal/Popup Box Footer Starts here-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral"
+                                      label="No"
+                                      title="Cancel"
+                                      onclick="{! c.closeModel }"/>
+                    <lightning:button variant="brand"
+                                      label="Yes"
+                                      title="OK"
+                                      onclick="{!c.rollbackdeployPackage}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    
+    
+    <aura:if isTrue="{!v.clonepopup}">
+                    <h2 class="slds-text-heading_medium slds-hyphenate">ReDeploy/Clone Metadata</h2>
+                    <!--loading spinner start-->
+                    <aura:if isTrue="{!v.spinner}">
+                        <div aura:id="spinnerId" class="slds-spinner_container">
+                            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                                <span class="slds-assistive-text">Loading...</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </div>
+                    </aura:if>
+                    <!-- Loading spinner end--> 
+                    
+                        <div class="slds-form--stacked slds-p-around--medium slds-m-bottom--x-small">
+                            <div class="slds-form-element">
+                                <lightning:button  label="Create package" title="Base action" onclick="{!c.createPackage }"/>
+                                <lightning:button  label="Deploy" title="Base action" onclick="{!c.deployModal}"/>
+                                <lightning:button  label="Back" title="Base action" onclick="{! c.closeCloneModal }"/>
+                            </div>
+                        </div>
+                        <!-- iterate over map ans show the already selected metadata -->
+                        <aura:if isTrue="{!v.deploymentDetailRecordId}">
+                            <c:RM_UserStorydeploymentDetail RecordId = "{!v.deploymentDetailRecordId}" />
+                        </aura:if>
+                        <div class="slds-form-element">
+                            <h3 class="slds-section-title--divider">Retrieval Panel</h3>
+                        </div>
+                        
+                        <aura:iteration items="{!v.MetadataHeader_alldata}"  var="mapKey" indexVar="key">
+                            <div class="slds-section slds-is-close" id="{!mapKey.key}">
+                               <h3 class="slds-section__title">
+                                    <button aria-controls="componentList" class="slds-button slds-section__title-action">
+                                        <span onclick="{!c.toggleSection}" data-auraId="{!mapKey.key}">
+                                            <lightning:icon iconName="utility:switch"
+                                                            size="x-small"
+                                                            class="slds-section__title-action-icon slds-button__icon_left"
+                                                            alternativeText="button icon" 
+                                                            />
+                                        </span>
+                                        <span class="slds-truncate" title="MetadataComponent"> {!mapKey.key} <aura:if isTrue="{!mapKey.value.length>0}">({!mapKey.value.length})</aura:if> </span>
+                                    </button>
+                                </h3>
+                                <!--section body-->
+                                <div class="slds-section__content" id="MetaDataComponentList" style="overflow:auto;">
+                                    <aura:if isTrue="{!not(empty(mapKey.value))}">
+                                        <div class="slds-checkbox" style="padding:1%">
+                                            <p style="font-weight:bold;">Select All</p>
+                                            <label class="slds-checkbox">
+                                                <input type="checkbox" name="multiSelect" id="{!'m-'+mapKey.key}" onchange="{!c.onChkAll}" value="{!mapKey.key}"></input>
+                                                <span class="slds-checkbox--faux" />
+                                                <span class="slds-form-element__label"></span>          
+                                            </label>
+                                        </div>
+                                        <br/>
+                                        <aura:iteration items="{!mapKey.value}"  var="val" >
+                                            <div class="slds-checkbox" style="padding:1%">
+                                                <label class="slds-checkbox">
+                                                    <input type="checkbox" name="singleSelect" id="{!'s-'+mapKey.key+'-'+val}" onchange="{!c.onSelectChange}" value="{!val}"></input>
+                                                    <span class="slds-checkbox--faux" />
+                                                    <span class="slds-form-element__label"></span>
+                                                    <span id="spnval">{!val}</span>
+                                                </label>
+                                            </div><br></br>
+                                        </aura:iteration>
+                                        <aura:set attribute="else">
+                                            No MetaData Found
+                                        </aura:set>
+                                    </aura:if> 
+                                </div>
+                            </div>
+                            <!--section 1 end-->
+                        </aura:iteration>
+                    
+                <lightning:button  label="Close" title="Base action" onclick="{! c.closeCloneModal }"/>
+        
+    </aura:if>
+    <!-- test class component -->
+    <aura:if isTrue="{!v.testRunPopup}">
+        <div class="demo-only" style="height: 600px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Header of Modal -->
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Deploy Test Options</h2>
+                    </header>
+                    <!-- Body of Modal -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class="slds-form-element" style="padding:2%">
+                            <ui:inputCheckbox aura:id="checkbox1" label="TakeBackup" change="{!c.onCheck1}"/>
+                            <br></br>
+                            <lightning:select name="mySelect" class="slds-container_small" label="Test Type" aura:id="mySelect" required="true" onchange="{!c.toggle}">
+                                <option value="No Value">choose one...</option>
+                                <option value="RunSpecifiedTests">RunSpecifiedTests</option>
+                                <option value="RunLocalTests">RunLocalTests</option>
+                                <option value="NoTestRun">NoTestRun</option>
+                                <option value="RunAllTestsInOrg">RunAllTestsInOrg</option>
+                            </lightning:select>
+                            <aura:if isTrue="{!v.toggleEng}">
+                                <lightning:input name="inputtestclass" aura:id="specifiedTestClass" value="{!v.testclass }" placeholder="Enter  your test class"  />
+                            </aura:if>
+                        </div>
+                        
+                    </div>
+                    <!-- Footer of Modal -->
+                    <footer class="slds-modal__footer">
+                        <lightning:button  label="Deploy" title="Base action" onclick="{!c.deployPackage}"/>
+                        <lightning:button  label="Cancel" title="Base action" onclick="{! c.closeModalfordeployment }"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <!-- Backdrop to set background slightly opaque. -->
+        </div>
+    </aura:if>    
+    <!-- test class component ends -->   
+</aura:component>

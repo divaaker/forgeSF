@@ -1,0 +1,3 @@
+<apex:page controller="SanctionAPICtrl" action="{!getResponse}">
+    {!sRes}
+</apex:page>

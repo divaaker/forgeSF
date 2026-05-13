@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Email_Alert</name>
+        <label>Send Email Alert</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddressesArray</name>
+            <value>
+                <elementReference>AdminEmailsList</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>EmailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <assignments>
+        <name>Add_Admin_Email_to_List</name>
+        <label>Add Admin Email to List</label>
+        <locationX>308</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>AdminEmailsList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_Through_Admins.Email</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Admins</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Recipients_Exist</name>
+        <label>Check Recipients Exist</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>No Recipients</defaultConnectorLabel>
+        <rules>
+            <name>Has_Recipients</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ActiveSystemAdmins</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_Alert</targetReference>
+            </connector>
+            <label>Has Recipients</label>
+        </rules>
+    </decisions>
+    <description>Sends email notification to System Administrators when a user is activated (IsActive changes from false to true)</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>EmailBody</name>
+        <dataType>String</dataType>
+        <expression>&quot;Hello,&quot; &amp; BR() &amp; BR() &amp;
+&quot;A user account has been activated in Salesforce.&quot; &amp; BR() &amp; BR() &amp;
+&quot;ACTIVATED USER DETAILS:&quot; &amp; BR() &amp;
+&quot;-----------------------&quot; &amp; BR() &amp;
+&quot;Full Name:    &quot; &amp; {!$Record.Name} &amp; BR() &amp;
+&quot;Username:     &quot; &amp; {!$Record.Username} &amp; BR() &amp;
+&quot;Email:        &quot; &amp; {!$Record.Email} &amp; BR() &amp;
+&quot;Activated On: &quot; &amp; TEXT({!$Record.LastModifiedDate}) &amp; BR() &amp; BR() &amp;
+&quot;This notification was generated automatically when the user&apos;s IsActive field changed from false to true.&quot; &amp; BR() &amp; BR() &amp;
+&quot;Best regards,&quot; &amp; BR() &amp;
+&quot;Salesforce System&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>EmailSubject</name>
+        <dataType>String</dataType>
+        <expression>&quot;User Activated: &quot; &amp; {!$Record.Name}</expression>
+    </formulas>
+    <interviewLabel>User Activation Notification {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>User Activation Notification</label>
+    <loops>
+        <name>Loop_Through_Admins</name>
+        <label>Loop Through Admins</label>
+        <locationX>44</locationX>
+        <locationY>458</locationY>
+        <collectionReference>ActiveSystemAdmins</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_Admin_Email_to_List</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Send_Email_Alert</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Active_System_Administrators</name>
+        <label>Get Active System Administrators</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Recipients_Exist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ProfileId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>00eB0000000kLaY</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Active_System_Administrators</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>User</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>ActiveSystemAdmins</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>User</objectType>
+    </variables>
+    <variables>
+        <name>AdminEmailsList</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

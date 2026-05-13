@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>Contact Screen Validation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact Screen Validation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>Contact_Screen_Validation</name>
+        <label>Contact Screen Validation</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>First_Name</name>
+            <dataType>String</dataType>
+            <fieldText>First Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Please enter first Name or last name&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                <formulaExpression>NOT(ISBLANK({!First_Name})) ||
+NOT(ISBLANK({!Last_Name}))</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Last_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Last Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;Please enter first Name or last name&lt;/p&gt;</errorMessage>
+                <formulaExpression>NOT(ISBLANK({!First_Name})) ||
+NOT(ISBLANK({!Last_Name}))</formulaExpression>
+            </validationRule>
+        </fields>
+        <fields>
+            <name>Middle_Name</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <stringValue>Middle NAme</stringValue>
+            </defaultValue>
+            <fieldText>Middle Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <validationRule>
+                <errorMessage>&lt;p&gt;First Name and last name required&lt;/p&gt;</errorMessage>
+                <formulaExpression>NOT(ISBLANK({!First_Name})) ||
+NOT(ISBLANK({!Last_Name}))</formulaExpression>
+            </validationRule>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Contact_Screen_Validation</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+</Flow>

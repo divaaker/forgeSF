@@ -1,0 +1,21 @@
+<aura:component controller="ApexActivityWrapper" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" access="global">  
+   
+    <aura:attribute name="taskEventList2" type="object"/>
+      <aura:handler name="init" value="{!this}" action="{!c.doInIt}"/>
+   	<aura:attribute name="mycolumns" type="List"/>
+   
+    <div style= "font-size: 14px; font-weight: bold; margin-left:15px; margin-top:10px;">
+        ActivityList        
+    </div>
+    <div>
+        <aura:if isTrue="{!not(empty(v.taskEventList2))}">
+            <lightning:datatable data="{!v.taskEventList2}" 
+                                 columns="{!v.mycolumns}" 
+                                 keyField="Id"
+                                 hideCheckboxColumn="true"/>
+            <aura:set attribute="else">
+                <div Style="text-align : center">Keine Aufgaben</div>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

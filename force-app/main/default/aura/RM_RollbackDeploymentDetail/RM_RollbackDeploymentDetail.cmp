@@ -1,0 +1,68 @@
+<aura:component controller='GRM_MetadataRetrieveController'>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/> 
+    <aura:attribute name="RollbackMetadataHeader_alldata" type="object" />
+    <aura:attribute name="DeletedMetadataHeader_alldata" type="object" />
+    <aura:attribute name="rollstate" type="Boolean" default="false" />
+    <aura:attribute name="delstate" type="Boolean" default="false" />
+    <aura:attribute name="RecordId" type="string"/>
+    
+    
+    <div class="slds-form-element">
+        <h3 class="slds-section-title--divider">Non-Destructive Metadata Components</h3>
+    </div>
+    <aura:if isTrue="{!v.rollstate}">
+        <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+            <thead>
+                <tr class="slds-text-heading_label">
+                    <th scope="col"><div class="slds-truncate" title="">Metadata Type</div></th>
+                    <th scope="col"><div class="slds-truncate" title="">Metadata Item</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.RollbackMetadataHeader_alldata}"  var="mapKey" indexVar="key">
+                    <aura:iteration items="{!mapKey.value}"  var="val" > 
+                        <tr>
+                            <td><div class="slds-truncate" >{!mapKey.key}</div></td>
+                            <td><div class="slds-truncate" >{!val}</div></td>
+                        </tr>
+                    </aura:iteration>
+                </aura:iteration>
+            </tbody>
+        </table>
+        <aura:set attribute="else">
+            <div >
+                No component found for rollback.
+            </div>
+        </aura:set>
+    </aura:if>
+    
+    <div class="slds-form-element">
+        <h3 class="slds-section-title--divider">Destructive Metadata Components</h3>
+    </div>
+    <aura:if isTrue="{!v.delstate}">
+        <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+            <thead>
+                <tr class="slds-text-heading_label">
+                    <th scope="col"><div class="slds-truncate" title="">Metadata Type</div></th>
+                    <th scope="col"><div class="slds-truncate" title="">Metadata Item</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.DeletedMetadataHeader_alldata}"  var="mapKey" indexVar="key">
+                    <aura:iteration items="{!mapKey.value}"  var="val" > 
+                        <tr>
+                            <td><div class="slds-truncate" >{!mapKey.key}</div></td>
+                            <td><div class="slds-truncate" >{!val}</div></td>
+                        </tr>
+                    </aura:iteration>
+                </aura:iteration>
+            </tbody>
+        </table>
+        <aura:set attribute="else">
+            <div >
+                No component found for rollback.
+            </div>
+        </aura:set>
+    </aura:if>
+    
+</aura:component>
