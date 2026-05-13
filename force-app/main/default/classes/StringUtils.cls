@@ -1,4 +1,6 @@
 // this is rollback test 12345
+// this is rollback test 12345
+//Pipeline testing 1
 public with sharing class StringUtils {
     //utility class - do not use this in production
     //add more utility methods to the class to test the process
