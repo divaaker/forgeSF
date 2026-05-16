@@ -3,6 +3,7 @@
     <types>
         <members>AccountRetriever</members>
         <members>BadApexDemo</members>
+        <members>CaseUtils</members>
         <name>ApexClass</name>
     </types>
     <version>59.0</version>
