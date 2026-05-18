@@ -2,9 +2,11 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>AccountRetriever</members>
+        <members>AccountService</members>
+        <members>AccountServiceTest</members>
         <members>BadApexDemo</members>
         <members>CaseUtils</members>
         <name>ApexClass</name>
     </types>
-    <version>59.0</version>
+    <version>65.0</version>
 </Package>
