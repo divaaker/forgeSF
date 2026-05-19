@@ -6,7 +6,8 @@
         <members>AccountServiceTest</members>
         <members>BadApexDemo</members>
         <members>CaseUtils</members>
+        <members>ProfileAnalyzer</members>
         <name>ApexClass</name>
     </types>
-    <version>65.0</version>
+    <version>59.0</version>
 </Package>
