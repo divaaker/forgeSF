@@ -1,3 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>InternalLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>InternalLabel</shortDescription>
+        <value>Internal</value>
+    </labels>
+    <labels>
+        <fullName>Private</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Private</shortDescription>
+        <value>Amount</value>
+    </labels>
+    <labels>
+        <fullName>Production_Login_URL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Production Login URL</shortDescription>
+        <value>https://login.salesforce.com</value>
+    </labels>
+    <labels>
+        <fullName>Sandbox_Login_URL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sandbox Login URL</shortDescription>
+        <value>https://test.salesforce.com</value>
+    </labels>
+    <labels>
+        <fullName>TestDeletion</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TestDeletion</shortDescription>
+        <value>This is for delete</value>
+    </labels>
+</CustomLabels>

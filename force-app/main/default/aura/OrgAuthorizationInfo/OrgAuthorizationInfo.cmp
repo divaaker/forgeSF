@@ -1,0 +1,137 @@
+<aura:component controller ="OrgAuthorizationInfoController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="selectedOrg" type="string" default=""/>
+    <aura:attribute name="removeOrgPopup" type="boolean" default="false"/>
+    <aura:attribute name="orgIdToRemove" type="string" default=""/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>   
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    <aura:attribute name="orgname" type="string" />
+    <aura:attribute name="orgtype" type="string" />
+    <aura:attribute name="orgList" type="OrgAuthorizationInfo__c[]" />
+    
+    <aura:attribute name="paginationList" type="OrgAuthorizationInfo__c[]"/>
+    <aura:attribute name="pageSize" type="Integer" default="5"/>
+    <aura:attribute name="totalSize" type="Integer"/>
+    <aura:attribute name="start" type="Integer" />
+    <aura:attribute name="end" type="Integer"/>
+    
+    <div class="slds-m-around_xx-large">
+        <lightning:button variant="brand"
+                          label="Add New Org"
+                          onclick="{! c.openModel }" />
+        <!--Use aura:if tag to display/hide popup based on isModalOpen value-->  
+        <aura:if isTrue="{!v.isModalOpen}">
+           <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">            
+                <!-- Modal/Popup Box starts here-->
+                <div style="height:600px;" class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate slds-text-color_inverse">Add Org Information</h2>
+                    </header>
+                    
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        
+                        
+                            <!-- MODAL BODY / INPUT FORM -->    
+                            <div class="slds-modal__content slds-p-around--x-small slds-align_absolute-center slds-is-relative" aura:id="modalbody" id="modalbody">
+                                <form class="slds-form--stacked" style="height:250px;">
+                                    <!-- All the fields for the form input -->
+                                    <!-- required added on 08-oct-2020 by shatrughna -->
+                                    <!-- Added By Ujjwal Saxena-->
+                                    <div class="slds-col slds-size_2-of-2">
+                                        
+                                        <lightning:input label="Org Name" type="text" aura:id="oid" value="{! v.orgname}" required="true"/>
+                                    </div>
+                                    <div class="slds-col slds-size_2-of-2 slds-p-top_small">
+                                       
+                                        <lightning:select label="Org Type" name="otid" value="{!v.orgtype}" aura:id="otid" required="true">
+         									<option value="">choose one...</option>
+         									<option value="Sandbox">Sandbox</option>\
+                                            <option value="Production">Production</option>
+         								</lightning:select>
+                                    </div>
+                                </form> 
+                                
+                            </div>   <!-- End of Modal Content -->  
+                            
+                            <!-- MODAL FOOTER -->
+                            <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+                                <div class="forceChangeRecordTypeFooter">
+                                    <lightning:button class="slds-button slds-button_neutral" label="Cancel" onclick="{!c.closeModel}"  /> 
+                                    <lightning:button class="slds-button slds-button--brand"
+                                                      label="Save"  onclick="{!c.validateOrgName}"/>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    
+                </div>
+            </section>
+        </aura:if>
+    </div> 
+    <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+        <thead>
+            <tr class="slds-text-heading_label">
+                <th scope="col"><div class="slds-truncate" title="Org">ORG</div></th>
+                <th scope="col"><div class="slds-truncate" title="Authorised">Status</div></th>
+                <th scope="col"><div class="slds-truncate" title="Org Type">Org Type</div></th>
+                <th scope="col"><div class="slds-truncate" title="Action">Action</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <!-- Use the Apex model and controller to fetch server side data -->
+            <aura:iteration items="{!v.paginationList}" var="org">
+                   <tr>
+                    <td><div class="slds-truncate" title="{!org.Name}" >{!org.Name}</div></td>
+                    <td><div class="slds-truncate"  title="{!org.Authorised__c}">
+                        <ui:outputText value="{!if(org.Authorised__c, 'Authorized', 'Not Authorized')}"/>
+                        </div></td>
+                    <td><div class="slds-truncate"  title="{!org.OrgType__c}">{!org.OrgType__c}</div></td>
+                    <td>
+                        <button class="slds-button slds-button_neutral" onclick="{!c.handleOrgAuthorization}" data-org="{!org.Id}">Authorize Org</button>
+						<button class="slds-button slds-button_neutral" onclick="{!c.openpopup}" data-recordid="{!org.Id}">Remove Org</button>                        
+                    </td>
+                </tr>
+               </aura:iteration>
+        </tbody>
+    </table>  
+    
+    <!-- Pagination (Added by Yashpal Singh -->
+    <div  style="text-align: center">
+        <lightning:button  label="First" disabled="{!v.start == 0}"  onclick="{!c.first}" />
+        
+        <lightning:button  label="Previous" disabled="{!v.start == 0}"  onclick="{!c.previous}" />
+        
+        <lightning:button  label="Next" disabled="{!v.end >= v.totalSize}" onclick="{!c.next}" />
+        
+        <lightning:button  label="Last" disabled="{!v.end >= v.totalSize}" onclick="{!c.last}"/>
+    </div>
+
+        <!--Org remove popup start (ADDED BY YASHPAL SINGH)-->    
+        <aura:if isTrue="{!v.removeOrgPopup}">
+        <div class="demo-only" style="height: 600px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Header of Modal -->
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate slds-text-color_inverse">Confirmation</h2>
+                    </header>
+                    <!-- Body of Modal -->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class="slds-form-element" style="padding:2%">
+                            <center><b>Are you sure you want to remove this org?</b></center>
+                        </div>
+                    </div>
+                    <!-- Footer of Modal -->
+                    <footer class="slds-modal__footer">
+                        <lightning:button  label="No" title="Base action" onclick="{! c.closepopup }"/>
+                        <lightning:button variant="brand" name='Yes' label='Yes' onclick='{!c.deleteRecord}' />
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <!-- Backdrop to set background slightly opaque. -->
+        </div>
+    </aura:if>    
+    <!--Org remove popup end --> 
+</aura:component>

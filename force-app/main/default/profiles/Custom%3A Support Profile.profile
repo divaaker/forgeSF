@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>true</custom>
-    <flowAccesses>
-        <enabled>false</enabled>
-        <flow>Contact_Screen</flow>
-    </flowAccesses>
+    <loginHours>
+        <fridayEnd>1080</fridayEnd>
+        <fridayStart>480</fridayStart>
+        <mondayEnd>1080</mondayEnd>
+        <mondayStart>480</mondayStart>
+        <saturdayEnd>0</saturdayEnd>
+        <saturdayStart>0</saturdayStart>
+        <sundayEnd>0</sundayEnd>
+        <sundayStart>0</sundayStart>
+        <thursdayEnd>1080</thursdayEnd>
+        <thursdayStart>480</thursdayStart>
+        <tuesdayEnd>1080</tuesdayEnd>
+        <tuesdayStart>480</tuesdayStart>
+        <wednesdayEnd>1080</wednesdayEnd>
+        <wednesdayStart>480</wednesdayStart>
+    </loginHours>
+    <loginIpRanges>
+        <description>San Diego</description>
+        <endAddress>255.255.255.255</endAddress>
+        <startAddress>0.0.0.0</startAddress>
+    </loginIpRanges>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
@@ -108,6 +125,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ManageCssUsers</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ManageEncryptionKeys</name>
     </userPermissions>
     <userPermissions>
@@ -120,11 +141,11 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>SelectFilesFromSalesforce</name>
+        <name>SendSitRequests</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>SendSitRequests</name>
+        <name>ShareFilesWithNetworks</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -153,6 +174,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewEventLogFiles</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewGlobalHeader</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

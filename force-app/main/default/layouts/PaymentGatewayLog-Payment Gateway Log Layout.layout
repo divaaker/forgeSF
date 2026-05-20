@@ -28,6 +28,10 @@
                 <behavior>Edit</behavior>
                 <field>InteractionStatus</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>OrderPaymentSummaryId</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

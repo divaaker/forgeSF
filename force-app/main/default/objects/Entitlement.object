@@ -140,6 +140,11 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>AssetWarrantyId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>BusinessHoursId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>

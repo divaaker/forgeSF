@@ -155,6 +155,10 @@
         <fullName>Message</fullName>
     </fields>
     <fields>
+        <fullName>OrderSummaryId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>OwnerId</fullName>
         <type>Lookup</type>
     </fields>

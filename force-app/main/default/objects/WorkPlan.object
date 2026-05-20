@@ -169,6 +169,16 @@
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
+    <listViews>
+        <fullName>All_WorkPlans</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Work Plans</label>
+    </listViews>
+    <listViews>
+        <fullName>My_WorkPlans</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Work Plans</label>
+    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>Description</customTabListAdditionalFields>
         <customTabListAdditionalFields>WorkOrder</customTabListAdditionalFields>

@@ -143,6 +143,10 @@
         <fullName>SkillLevel</fullName>
         <trackHistory>false</trackHistory>
     </fields>
+    <fields>
+        <fullName>SkillPriority</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
     <searchLayouts>
         <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>

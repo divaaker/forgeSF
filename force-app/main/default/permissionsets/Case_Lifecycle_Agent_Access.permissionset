@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Grants support representatives access to the Case Lifecycle Agent in the Agentforce Copilot panel</description>
-    <hasActivationRequired>false</hasActivationRequired>
-    <label>Case Lifecycle Agent Access</label>
-</PermissionSet>

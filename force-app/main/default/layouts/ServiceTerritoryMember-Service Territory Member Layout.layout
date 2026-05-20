@@ -30,10 +30,6 @@
                 <behavior>Edit</behavior>
                 <field>OperatingHoursId</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Role</field>
-            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

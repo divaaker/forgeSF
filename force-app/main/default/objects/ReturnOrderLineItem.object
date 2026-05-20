@@ -135,11 +135,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>ChangeOrderItemId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Description</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -147,10 +142,6 @@
         <fullName>DestinationLocationId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>GrossUnitPrice</fullName>
-        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>OrderItemId</fullName>
@@ -164,6 +155,26 @@
     </fields>
     <fields>
         <fullName>Product2Id</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductItemId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductRequestLineItemId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductServiceCampaignId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductServiceCampaignItemId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -217,82 +228,55 @@
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
-    <fields>
-        <fullName>TotalAdjustmentAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalAdjustmentAmountWithTax</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalAdjustmentTaxAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalAmount</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalLineAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalLineAmountWithTax</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalLineTaxAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalPrice</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalTaxAmount</fullName>
-    </fields>
-    <fields>
-        <fullName>TypeCode</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>UnitPrice</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
     <searchLayouts>
         <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>
         <customTabListAdditionalFields>ReturnOrder</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ProductRequestLineItem</customTabListAdditionalFields>
         <customTabListAdditionalFields>OrderItem</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ProductItem</customTabListAdditionalFields>
         <customTabListAdditionalFields>Product2</customTabListAdditionalFields>
         <customTabListAdditionalFields>SourceLocation</customTabListAdditionalFields>
         <customTabListAdditionalFields>DestinationLocation</customTabListAdditionalFields>
         <customTabListAdditionalFields>Asset</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ChangeOrderItem</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ProductServiceCampaign</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ProductServiceCampaignItem</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>LastModifiedDate</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>LastModifiedBy</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ReturnOrder</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ProductRequestLineItem</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>OrderItem</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ProductItem</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Product2</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>SourceLocation</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>DestinationLocation</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Asset</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ChangeOrderItem</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ProductServiceCampaign</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ProductServiceCampaignItem</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>LastModifiedDate</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>LastModifiedBy</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ReturnOrder</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProductRequestLineItem</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>OrderItem</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProductItem</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Product2</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>SourceLocation</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>DestinationLocation</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Asset</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>ChangeOrderItem</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProductServiceCampaign</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProductServiceCampaignItem</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>LastModifiedDate</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LastModifiedBy</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ReturnOrder</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ProductRequestLineItem</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>OrderItem</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ProductItem</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Product2</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>SourceLocation</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>DestinationLocation</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Asset</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ChangeOrderItem</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ProductServiceCampaign</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ProductServiceCampaignItem</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

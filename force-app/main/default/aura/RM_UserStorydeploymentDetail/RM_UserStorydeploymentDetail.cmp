@@ -1,0 +1,32 @@
+<aura:component controller='GRM_MetadataRetrieveController'>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/> 
+    <aura:attribute name="SelectedMetadataHeader_alldata" type="object" />   
+    <aura:attribute name="RecordId" type="string"/>
+    
+    
+    <div class="slds-form-element">
+        <h3 class="slds-section-title--divider">Previously selected metadata components</h3>
+    </div>
+    
+    <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+        <thead>
+            <tr class="slds-text-heading_label">
+                <th scope="col"><div class="slds-truncate" title="">Metadata Type</div></th>
+                <th scope="col"><div class="slds-truncate" title="">Metadata Item</div></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.SelectedMetadataHeader_alldata}"  var="mapKey" indexVar="key">
+                <aura:iteration items="{!mapKey.value}"  var="val" > 
+                    <tr>
+                        <td><div class="slds-truncate" >{!mapKey.key}</div></td>
+                        <td><div class="slds-truncate" >{!val}</div></td>
+                    </tr>
+                </aura:iteration>
+            </aura:iteration>
+            
+        </tbody>
+    </table>
+    
+</aura:component>

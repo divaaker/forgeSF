@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <fields>
+        <fullName>Account_Lookup__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Lookup</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Account_Lookup</relationshipName>
+        <required>true</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Time</label>
+        <required>true</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>MyTextField__c</fullName>
+        <externalId>false</externalId>
+        <label>My Text Field</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_Field__c</fullName>
+        <externalId>false</externalId>
+        <label>Number Field</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Test_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <indexes>
+        <fullName>MyFirstBigIndex</fullName>
+        <fields>
+            <name>Account_Lookup__c</name>
+            <sortDirection>DESC</sortDirection>
+        </fields>
+        <fields>
+            <name>Date_Time__c</name>
+            <sortDirection>DESC</sortDirection>
+        </fields>
+        <label>My First Big Index</label>
+    </indexes>
+    <label>My First Big Object</label>
+    <pluralLabel>My First Big Object</pluralLabel>
+</CustomObject>

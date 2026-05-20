@@ -118,6 +118,14 @@
         <fullName>Description</fullName>
     </fields>
     <fields>
+        <fullName>Dhruvsoft__IsConverted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>IsConverted</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Discount</fullName>
     </fields>
     <fields>

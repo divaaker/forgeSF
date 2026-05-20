@@ -159,9 +159,9 @@
         <trackHistory>false</trackHistory>
     </fields>
     <listViews>
-        <fullName>All_AuthorizationFormText</fullName>
+        <fullName>All_AuthorizationFormTexts</fullName>
         <filterScope>Everything</filterScope>
-        <label>All Authorization Form Text</label>
+        <label>All Authorization Form Texts</label>
     </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>AuthorizationForm</customTabListAdditionalFields>

@@ -23,7 +23,7 @@
                 <field>ListPrice</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>UnitPrice</field>
             </layoutItems>
             <layoutItems>

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>false</custom>
-    <flowAccesses>
-        <enabled>false</enabled>
-        <flow>Contact_Screen</flow>
-    </flowAccesses>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>

@@ -199,6 +199,10 @@
         <fullName>Status</fullName>
         <trackHistory>false</trackHistory>
     </fields>
+    <fields>
+        <fullName>SuspendedByType</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
     <searchLayouts>
         <customTabListAdditionalFields>MessagingChannel</customTabListAdditionalFields>
         <customTabListAdditionalFields>MessagingEndUser</customTabListAdditionalFields>

@@ -347,6 +347,54 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Lead_Convert__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(
+ISBLANK(ConvertedOpportunityId),
+OR(
+ISPICKVAL( LeadSource ,&quot;Web&quot;),
+ISPICKVAL( LeadSource ,&quot;LiveChat&quot;)
+)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Convert</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Id</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Direct</fullName>
+                    <default>false</default>
+                    <label>Direct</label>
+                </value>
+                <value>
+                    <fullName>Indirect</fullName>
+                    <default>false</default>
+                    <label>Indirect</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>MobilePhone</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -372,6 +420,11 @@
     <fields>
         <fullName>OwnerId</fullName>
         <trackFeedHistory>true</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PartnerAccountId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -450,6 +503,35 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Sanctions__Sanctions_Run_On__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last sanctions.io Screen Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Sanctions__Sanctions_Run__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Screened by sanctions.io</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sanctions__Screening_Summary__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Summary of the last screening performed, including lists searched and results found</description>
+        <externalId>false</externalId>
+        <label>sanctions.io Screening Details</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
         <fullName>Status</fullName>
         <trackFeedHistory>true</trackFeedHistory>
         <type>Picklist</type>
@@ -462,6 +544,14 @@
         <fullName>Website</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
+    <fields>
+        <fullName>champion__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>champion</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
     <listViews>
         <fullName>AllOpenLeads</fullName>
         <filterScope>Everything</filterScope>
@@ -471,6 +561,15 @@
             <value>closed</value>
         </filters>
         <label>All Open Leads</label>
+    </listViews>
+    <listViews>
+        <fullName>Lead_Queue_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Lead Queue</label>
+        <queue>Lead_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MyUnreadLeads</fullName>
