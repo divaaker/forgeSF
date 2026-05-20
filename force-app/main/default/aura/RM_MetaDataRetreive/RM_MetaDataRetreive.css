@@ -1,0 +1,26 @@
+.THIS .slds-spinner_container {  
+    z-index: 10000;
+    position: fixed;   
+}
+.THIS .custom-loading-text {
+    z-index: 10000;
+    position: absolute;
+    
+    transition-delay: 0s,.3s;
+}
+.THIS .spins::after {
+    position: absolute;
+    content: 'Please wait while loading';
+    width: 100%;
+    text-align: center;
+    top: calc(50% + 3em);
+    font-weight: bold;
+}
+.THIS .text{
+    text-shadow: 2px 2px 5px red;
+    font-size: 15px;
+    text-align: center;
+}
+.THIS .buttoncolor{
+    background-color: skyblue;
+}

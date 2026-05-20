@@ -130,22 +130,160 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>ActualTravelTime</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>AssignedResourceNumber</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>EventId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>IsRequiredResource</fullName>
+        <fullName>EstimatedTravelTime</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>Role</fullName>
+        <fullName>FSL__EstimatedTravelDistanceFrom__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Approximate Travel Distance From</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FSL__EstimatedTravelDistanceTo__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Approximate Travel Distance To</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FSL__EstimatedTravelTimeFrom__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Approximate Travel Time From (Minutes)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FSL__Estimated_Travel_Time_From_Source__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Estimated Travel Time From Source</label>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Aerial</fullName>
+                    <default>false</default>
+                    <label>Aerial</label>
+                </value>
+                <value>
+                    <fullName>SLR</fullName>
+                    <default>false</default>
+                    <label>SLR</label>
+                </value>
+                <value>
+                    <fullName>Predictive</fullName>
+                    <default>false</default>
+                    <label>Predictive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FSL__Estimated_Travel_Time_To_Source__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Estimated Travel Time To Source</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Aerial</fullName>
+                    <default>false</default>
+                    <label>Aerial</label>
+                </value>
+                <value>
+                    <fullName>SLR</fullName>
+                    <default>false</default>
+                    <label>SLR</label>
+                </value>
+                <value>
+                    <fullName>Predictive</fullName>
+                    <default>false</default>
+                    <label>Predictive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>FSL__Last_Updated_Epoch__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last Updated Epoch</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FSL__UpdatedByOptimization__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>UpdatedByOptimization</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FSL__calculated_duration__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>calculated duration (Minutes)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsTravelFromHomeBase</fullName>
+        <inlineHelpText>Determines whether the resource&apos;s travel to the service appointment starts from their home base. The default is false.</inlineHelpText>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ServiceAppointmentId</fullName>
@@ -153,9 +291,23 @@
         <type>MasterDetail</type>
     </fields>
     <fields>
+        <fullName>ServiceCrewId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>ServiceResourceId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Transaction</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TravelTimeBuffer</fullName>
+        <inlineHelpText>Number of minutes added to the estimated travel time to cover additional time, such as for parking.</inlineHelpText>
+        <trackHistory>false</trackHistory>
     </fields>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

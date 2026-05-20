@@ -142,6 +142,11 @@
         <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
     </fields>
+    <listViews>
+        <fullName>All_OperatingHoursHolidays</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Operating Hours Holiday</label>
+    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>Holiday</customTabListAdditionalFields>
         <customTabListAdditionalFields>OperatingHours</customTabListAdditionalFields>

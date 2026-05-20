@@ -226,6 +226,14 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>BillingEmailAddress</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>BillingPhoneNumber</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>CompanyAuthorizedById</fullName>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
@@ -259,12 +267,60 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>Dhruvsoft__OpportunityId__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>OpportunityId(Deprecated)</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dhruvsoft__Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Opportunity(Deprecated)</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dhruvsoft__OrderAmtFromOpportunityAmt__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This Order Amount is fetched from Opportunity Amount Field</description>
+        <externalId>false</externalId>
+        <label>Order Amount (Opportunity)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Dhruvsoft__convert_from_opportunity__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Converted from Opportunity</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>EffectiveDate</fullName>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>EndDate</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>GrandTotalAmount</fullName>
     </fields>
     <fields>
         <fullName>IsReductionOrder</fullName>
@@ -281,6 +337,10 @@
     <fields>
         <fullName>OrderReferenceNumber</fullName>
         <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>OrderedDate</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>OriginalOrderId</fullName>
@@ -305,6 +365,25 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>QuoteId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RelatedOrderId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RelatedOrderType</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>SalesChannelId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>ShipToContactId</fullName>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
@@ -319,8 +398,60 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>TaxLocaleType</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TotalAdjDeliveryAmtWithTax</fullName>
+    </fields>
+    <fields>
+        <fullName>TotalAdjProductAmtWithTax</fullName>
+    </fields>
+    <fields>
+        <fullName>TotalAdjustedDeliveryAmount</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TotalAdjustedDeliveryTaxAmount</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TotalAdjustedProductAmount</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TotalAdjustedProductTaxAmount</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>TotalAmount</fullName>
         <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TotalDeliveryAdjDistAmount</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TotalDeliveryAdjDistAmtWithTax</fullName>
+    </fields>
+    <fields>
+        <fullName>TotalDeliveryAdjDistTaxAmount</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TotalProductAdjDistAmount</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TotalProductAdjDistAmtWithTax</fullName>
+    </fields>
+    <fields>
+        <fullName>TotalProductAdjDistTaxAmount</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TotalTaxAmount</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Type</fullName>

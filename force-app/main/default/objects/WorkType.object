@@ -130,41 +130,6 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
-        <fullName>AppointmentCategoryId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>ApptStartTimeIntvlInMin</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>AttendeeLimit</fullName>
-        <inlineHelpText>Enter the maximum number of service appointment attendees that can attend a group service appointment. This field is mandatory if the appointment category is group.</inlineHelpText>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>BlockTimeAfterAppointment</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>BlockTimeAfterUnit</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>BlockTimeBeforeAppointment</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>BlockTimeBeforeUnit</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>DefaultAppointmentType</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Description</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -177,13 +142,35 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>Name</fullName>
+        <fullName>FSL__Due_Date_Offset__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Minutes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculates the Due Date by adding Minutes to the Service creation time, reflecting the organisation&apos;s internal SLA</inlineHelpText>
+        <label>Due Date Offset</label>
+        <precision>9</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FSL__Exact_Appointments__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Exact Appointments</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MinimumCrewSize</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>OperatingHoursId</fullName>
+        <fullName>Name</fullName>
         <trackHistory>false</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
@@ -191,24 +178,16 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>ProductId</fullName>
+        <fullName>RecommendedCrewSize</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ServiceReportTemplateId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>TimeFrameEndUnit</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TimeFrameStartUnit</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TimeframeEnd</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TimeframeStart</fullName>
+        <fullName>ShouldAutoCreateSvcAppt</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <listViews>

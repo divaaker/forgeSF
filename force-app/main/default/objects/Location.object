@@ -130,6 +130,11 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>AccountId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>CloseDate</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -142,27 +147,11 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>DefaultPickupTime</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>DefaultProcessingTime</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>DefaultProcessingTimeUnit</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Description</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>DrivingDirections</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>EarliestPickupTimeOffset</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
@@ -178,24 +167,11 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>FulfillingBusinessHoursId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>IsEligibleForPickup</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>IsInventoryLocation</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>IsMobile</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>LatestPickupTimeOffset</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
@@ -243,14 +219,6 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>PickupProcessingTime</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>PickupProcessingTimeUnit</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>PossessionDate</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -281,9 +249,14 @@
         <type>Lookup</type>
     </fields>
     <listViews>
-        <fullName>all_locations</fullName>
+        <fullName>All_Locations</fullName>
         <filterScope>Everything</filterScope>
         <label>All Locations</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Locations</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Locations</label>
     </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>LocationType</customTabListAdditionalFields>

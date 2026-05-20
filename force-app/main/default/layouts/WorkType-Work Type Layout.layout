@@ -15,10 +15,6 @@
                 <field>Description</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>OperatingHoursId</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>EstimatedDuration</field>
             </layoutItems>
@@ -28,35 +24,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>BlockTimeBeforeAppointment</field>
+                <field>ServiceReportTemplateId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>BlockTimeBeforeUnit</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>BlockTimeAfterAppointment</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>BlockTimeAfterUnit</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TimeframeStart</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TimeFrameStartUnit</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TimeframeEnd</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TimeFrameEndUnit</field>
+                <field>ShouldAutoCreateSvcAppt</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -98,19 +70,32 @@
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>Product2</fields>
+        <fields>QuantityRequired</fields>
+        <relatedList>ProductsRequired</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>Skill</fields>
         <fields>SkillLevel</fields>
         <relatedList>SkillRequirements</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>Name</fields>
-        <fields>ServiceTerritory</fields>
-        <relatedList>ServiceTerritoryWorkType</relatedList>
+        <fields>TITLE</fields>
+        <fields>LAST_UPDATE</fields>
+        <fields>CREATEDBY_USER</fields>
+        <relatedList>RelatedLinkedArticleList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Name</fields>
         <fields>WorkTypeGroup</fields>
         <relatedList>WorkTypeGroupMember</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Name</fields>
+        <fields>WorkPlanTemplate</fields>
+        <fields>Asset</fields>
+        <fields>IsActive</fields>
+        <relatedList>WorkPlanSelectionRule</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>

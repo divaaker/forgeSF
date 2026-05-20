@@ -155,6 +155,16 @@
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
+    <listViews>
+        <fullName>All_WorkStepTemplates</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Work Step Templates</label>
+    </listViews>
+    <listViews>
+        <fullName>My_WorkStepTemplates</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Work Step Templates</label>
+    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>Description</customTabListAdditionalFields>
         <customTabListAdditionalFields>ActionDefinition</customTabListAdditionalFields>

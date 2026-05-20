@@ -1,0 +1,19 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <article class="slds-box slds-card">
+        <lightning:tabset selectedTabId="one">
+        <lightning:tab label="Org Authentication" id="one">
+            <article style="padding:1%" class="slds-card">
+                <c:OrgAuthorizationInfo></c:OrgAuthorizationInfo>
+            </article>
+        </lightning:tab>
+        <lightning:tab label="Deployment" id="two">
+            <c:RM_MetaDataRetreive></c:RM_MetaDataRetreive>
+        </lightning:tab> 
+        <lightning:tab label="Deployment Detail" id="three">
+            <c:RM_DeploymentDetail></c:RM_DeploymentDetail>
+        </lightning:tab> 
+        <!--<lightning:tab label="Data Migration" id="four">
+        </lightning:tab>-->
+    </lightning:tabset>
+    </article>
+</aura:component>

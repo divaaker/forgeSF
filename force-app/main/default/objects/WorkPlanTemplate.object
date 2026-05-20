@@ -150,6 +150,16 @@
         <fullName>RelativeExecutionOrder</fullName>
         <trackHistory>false</trackHistory>
     </fields>
+    <listViews>
+        <fullName>All_WorkPlanTemplates</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Work Plan Templates</label>
+    </listViews>
+    <listViews>
+        <fullName>My_WorkPlanTemplates</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Work Plan Templates</label>
+    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>Description</customTabListAdditionalFields>
         <customTabListAdditionalFields>RelativeExecutionOrder</customTabListAdditionalFields>

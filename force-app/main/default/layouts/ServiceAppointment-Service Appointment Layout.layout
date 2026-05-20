@@ -38,14 +38,6 @@
                 <behavior>Edit</behavior>
                 <field>WorkTypeId</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AdditionalInformation</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Comments</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -75,14 +67,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>StatusCategory</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AppointmentType</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CancellationReason</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -142,16 +126,37 @@
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Contact Information</label>
+        <layoutColumns/>
+        <layoutColumns/>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>false</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Bundler Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Phone</field>
+                <behavior>Readonly</behavior>
+                <field>RelatedBundleId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>IsBundleMember</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>BundlePolicyId</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email</field>
+                <behavior>Readonly</behavior>
+                <field>IsManuallyBundled</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>IsBundle</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -189,11 +194,6 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <quickActionList>
-        <quickActionListItems>
-            <quickActionName>Flow._ModifyAppointment</quickActionName>
-        </quickActionListItems>
-    </quickActionList>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
@@ -220,6 +220,9 @@
         <relatedList>RelatedFileList</relatedList>
     </relatedLists>
     <relatedLists>
+        <relatedList>RelatedContentNoteList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -232,8 +235,33 @@
     </relatedLists>
     <relatedLists>
         <fields>ServiceResource</fields>
-        <fields>Event</fields>
         <relatedList>AssignedResources</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>WorkCapacityUsage</fields>
+        <fields>EstimatedUsageInMinutes</fields>
+        <fields>UsageDate</fields>
+        <relatedList>ServiceAppointmentCapacityUsages</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Name</fields>
+        <fields>CreatedBy</fields>
+        <fields>CreatedDate</fields>
+        <relatedList>ServiceReportRelatedList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Name</fields>
+        <fields>SurveySubInvitationName</fields>
+        <fields>SurveySubInvitationLink</fields>
+        <fields>SurveySubInvitationParticipant</fields>
+        <fields>SurveySubInvitationResStatus</fields>
+        <relatedList>SurveySubjectRecords</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Subject</fields>
+        <fields>Status</fields>
+        <fields>LatestEndTime</fields>
+        <relatedList>BundledServiceAppointments</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>

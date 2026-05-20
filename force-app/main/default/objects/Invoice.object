@@ -186,6 +186,10 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>TaxLocaleType</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>TotalAdjustmentAmount</fullName>
         <trackHistory>false</trackHistory>
     </fields>

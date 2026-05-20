@@ -22,10 +22,6 @@
                 <behavior>Edit</behavior>
                 <field>IsActive</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AdditionalInformation</field>
-            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

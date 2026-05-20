@@ -95,7 +95,7 @@
         <fullName>ExpectedDeliveryDate</fullName>
     </fields>
     <fields>
-        <fullName>FulfillmentOrderLineItemId</fullName>
+        <fullName>OrderItemSummaryId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>

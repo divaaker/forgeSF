@@ -55,7 +55,15 @@
         <fields>StartTime</fields>
         <fields>EndTime</fields>
         <fields>Type</fields>
+        <fields>RecordsetFilterCriteria</fields>
         <relatedList>TimeSlots</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Holiday</fields>
+        <fields>HolidayDescription</fields>
+        <fields>DateAndTime</fields>
+        <fields>IsRecurrence</fields>
+        <relatedList>OperatingHoursHolidays</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>

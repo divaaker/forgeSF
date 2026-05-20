@@ -180,6 +180,10 @@
         <fullName>NetApplied</fullName>
     </fields>
     <fields>
+        <fullName>OrderPaymentSummaryId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>PaymentGatewayId</fullName>
         <type>Lookup</type>
     </fields>

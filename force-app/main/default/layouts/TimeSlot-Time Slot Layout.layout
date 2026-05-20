@@ -15,10 +15,6 @@
                 <field>StartTime</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MaxAppointments</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>OperatingHoursId</field>
             </layoutItems>
@@ -31,10 +27,6 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>EndTime</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>WorkTypeGroupId</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -68,6 +60,13 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <fields>Name</fields>
+        <fields>OperatingHours</fields>
+        <fields>WorkType</fields>
+        <fields>WorkTypeGroup</fields>
+        <relatedList>AppointmentTopicTimeSlots</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>

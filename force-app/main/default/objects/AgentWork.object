@@ -27,6 +27,10 @@
         <fullName>AgentIntCapacityWhenDeclined</fullName>
     </fields>
     <fields>
+        <fullName>AgenticWorkerReferenceObjId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>BotId</fullName>
         <type>Lookup</type>
     </fields>
@@ -132,6 +136,9 @@
     </fields>
     <fields>
         <fullName>RoutingType</fullName>
+    </fields>
+    <fields>
+        <fullName>ScheduledRoutingDateTime</fullName>
     </fields>
     <fields>
         <fullName>ServiceChannelId</fullName>

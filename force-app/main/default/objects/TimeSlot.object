@@ -138,13 +138,129 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>MaxAppointments</fullName>
+        <fullName>FSL__Designated_Work_Boolean_Fields__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Designated Work Boolean Fields</label>
+        <required>false</required>
         <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <label>None</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>FSL__Slot_Color__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Slot Color</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Red</fullName>
+                    <default>false</default>
+                    <label>Red</label>
+                </value>
+                <value>
+                    <fullName>Pink</fullName>
+                    <default>false</default>
+                    <label>Pink</label>
+                </value>
+                <value>
+                    <fullName>Purple</fullName>
+                    <default>false</default>
+                    <label>Purple</label>
+                </value>
+                <value>
+                    <fullName>Indigo</fullName>
+                    <default>false</default>
+                    <label>Indigo</label>
+                </value>
+                <value>
+                    <fullName>Blue</fullName>
+                    <default>false</default>
+                    <label>Blue</label>
+                </value>
+                <value>
+                    <fullName>Cyan</fullName>
+                    <default>false</default>
+                    <label>Cyan</label>
+                </value>
+                <value>
+                    <fullName>Teal</fullName>
+                    <default>false</default>
+                    <label>Teal</label>
+                </value>
+                <value>
+                    <fullName>Green</fullName>
+                    <default>false</default>
+                    <label>Green</label>
+                </value>
+                <value>
+                    <fullName>Lime</fullName>
+                    <default>false</default>
+                    <label>Lime</label>
+                </value>
+                <value>
+                    <fullName>Yellow</fullName>
+                    <default>false</default>
+                    <label>Yellow</label>
+                </value>
+                <value>
+                    <fullName>Amber</fullName>
+                    <default>false</default>
+                    <label>Amber</label>
+                </value>
+                <value>
+                    <fullName>Orange</fullName>
+                    <default>false</default>
+                    <label>Orange</label>
+                </value>
+                <value>
+                    <fullName>Brown</fullName>
+                    <default>false</default>
+                    <label>Brown</label>
+                </value>
+                <value>
+                    <fullName>Grey</fullName>
+                    <default>false</default>
+                    <label>Grey</label>
+                </value>
+                <value>
+                    <fullName>Asphalt</fullName>
+                    <default>false</default>
+                    <label>Asphalt</label>
+                </value>
+                <value>
+                    <fullName>Black</fullName>
+                    <default>false</default>
+                    <label>Black</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>OperatingHoursId</fullName>
         <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
+    </fields>
+    <fields>
+        <fullName>RecordsetFilterCriteriaId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>StartTime</fullName>
@@ -157,11 +273,6 @@
     <fields>
         <fullName>Type</fullName>
         <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>WorkTypeGroupId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
     </fields>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

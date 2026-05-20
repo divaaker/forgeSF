@@ -162,14 +162,12 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>GrandTotalAmount</fullName>
-    </fields>
-    <fields>
-        <fullName>LifeCycleType</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>OrderId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OrderSummaryId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -183,8 +181,14 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>RefundInstructionsHint</fullName>
+        <fullName>ProductRequestId</fullName>
         <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductServiceCampaignId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ReturnedById</fullName>
@@ -214,84 +218,6 @@
         <fullName>StatusCategory</fullName>
         <trackHistory>false</trackHistory>
     </fields>
-    <fields>
-        <fullName>TaxLocaleType</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalDeliveryAdjustAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalDeliveryAdjustAmtWithTax</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalDeliveryAdjustTaxAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalDeliveryAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalDeliveryAmtWithTax</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalDeliveryTaxAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalFeeAdjustAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalFeeAdjustAmtWithTax</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalFeeAdjustTaxAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalFeeAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalFeeAmtWithTax</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalFeeTaxAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalProductAdjustAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalProductAdjustAmtWithTax</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalProductAdjustTaxAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalProductAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalProductAmtWithTax</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalProductTaxAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>TotalTaxAmount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
     <listViews>
         <fullName>All_ReturnOrders</fullName>
         <filterScope>Everything</filterScope>
@@ -305,21 +231,25 @@
     <searchLayouts>
         <customTabListAdditionalFields>Account</customTabListAdditionalFields>
         <customTabListAdditionalFields>Contact</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ProductRequest</customTabListAdditionalFields>
         <customTabListAdditionalFields>Case</customTabListAdditionalFields>
         <customTabListAdditionalFields>SourceLocation</customTabListAdditionalFields>
         <customTabListAdditionalFields>ReturnedBy</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Account</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Contact</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ProductRequest</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Case</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>SourceLocation</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ReturnedBy</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Account</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Contact</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProductRequest</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Case</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>SourceLocation</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ReturnedBy</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>Account</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Contact</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ProductRequest</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Case</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>SourceLocation</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ReturnedBy</searchResultsAdditionalFields>

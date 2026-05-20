@@ -130,11 +130,6 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
-        <fullName>AppointmentCategoryId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>BackgroundColor</fullName>
         <inlineHelpText>Set a background color to highlight shifts in the schedule view.</inlineHelpText>
         <trackHistory>false</trackHistory>
@@ -142,6 +137,19 @@
     <fields>
         <fullName>EndTime</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>IsHolidayShift</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>IsNonStandard</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>JobProfileId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Label</fullName>
@@ -153,16 +161,9 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>RecurrenceEndDate</fullName>
+        <fullName>RecordsetFilterCriteriaId</fullName>
         <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>RecurrencePattern</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>RecurrenceStartDate</fullName>
-        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ServiceResourceId</fullName>
@@ -171,6 +172,11 @@
     </fields>
     <fields>
         <fullName>ServiceTerritoryId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ShiftTemplateId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -191,20 +197,6 @@
         <fullName>TimeSlotType</fullName>
         <trackHistory>false</trackHistory>
     </fields>
-    <fields>
-        <fullName>Type</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>WorkTypeGroupId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>WorkTypeId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
     <listViews>
         <fullName>All_Shifts</fullName>
         <filterScope>Everything</filterScope>
@@ -219,39 +211,51 @@
         <customTabListAdditionalFields>StartTime</customTabListAdditionalFields>
         <customTabListAdditionalFields>EndTime</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status</customTabListAdditionalFields>
+        <customTabListAdditionalFields>JobProfile</customTabListAdditionalFields>
         <customTabListAdditionalFields>ServiceResource</customTabListAdditionalFields>
         <customTabListAdditionalFields>ServiceTerritory</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RecordsetFilterCriteria</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IsNonStandard</customTabListAdditionalFields>
         <customTabListAdditionalFields>BackgroundColor</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Type</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IsHolidayShift</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>StartTime</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>EndTime</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Status</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>JobProfile</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ServiceResource</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ServiceTerritory</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>LastModifiedDate</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>LastModifiedBy</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RecordsetFilterCriteria</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IsNonStandard</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>BackgroundColor</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Type</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IsHolidayShift</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>StartTime</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>EndTime</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Status</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>JobProfile</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ServiceResource</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ServiceTerritory</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>LastModifiedDate</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>LastModifiedBy</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RecordsetFilterCriteria</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>IsNonStandard</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>BackgroundColor</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Type</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>IsHolidayShift</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>StartTime</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>EndTime</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>JobProfile</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ServiceResource</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ServiceTerritory</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LastModifiedDate</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LastModifiedBy</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RecordsetFilterCriteria</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IsNonStandard</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>BackgroundColor</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Type</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IsHolidayShift</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
 </CustomObject>

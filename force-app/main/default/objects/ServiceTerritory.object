@@ -134,8 +134,122 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>AvgTravelTime</fullName>
+        <inlineHelpText>Enter the average travel time for this service territory. The value is added to the Work Capacity Usage for each scheduled service appointment in the service territory.</inlineHelpText>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>FSL__Hide_Emergency_Map__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Determines if the map will be shown on the emergency wizard</description>
+        <externalId>false</externalId>
+        <label>Hide Emergency Map</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FSL__Internal_SLR_Geolocation__c</fullName>
+        <deprecated>false</deprecated>
+        <displayLocationInDecimal>true</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Internal SLR HomeAddress Geolocation</label>
+        <required>false</required>
+        <scale>6</scale>
+        <trackHistory>false</trackHistory>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>FSL__NumberOfServicesToDripFeed__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number Of Services To Drip Feed</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FSL__O2_Enabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Determines if enhanced scheduling and optimization engine is used</description>
+        <externalId>false</externalId>
+        <label>Use enhanced scheduling and optimization</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FSL__Service_Cluster_Min_Size__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Service Cluster Min Size (Closed Pilot)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FSL__Service_Cluster_Proximity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Service Cluster Proximity (Closed Pilot)</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FSL__System_Jobs__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>System Jobs</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>BATCH_ServicesInJeopardy</fullName>
+                    <default>false</default>
+                    <label>BATCH_ServicesInJeopardy</label>
+                </value>
+                <value>
+                    <fullName>BATCH_ServicesDispatched</fullName>
+                    <default>false</default>
+                    <label>BATCH_ServicesDispatched</label>
+                </value>
+                <value>
+                    <fullName>ChatterNotification</fullName>
+                    <default>false</default>
+                    <label>ChatterNotification</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>FSL__TerritoryLevel__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Territory Level</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>IsActive</fullName>
@@ -161,22 +275,24 @@
         <type>Hierarchy</type>
     </fields>
     <fields>
-        <fullName>PricebookId</fullName>
+        <fullName>SchedulingConstraintId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>SelfCheckInUrl</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>ServiceAppointmentLimitType</fullName>
-        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>TopLevelTerritoryId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TravelModeId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TravelTimeBuffer</fullName>
+        <inlineHelpText>Add additional time to driving time, such as time to find parking or to walk to the site. This value overrides the Travel Time Buffer value defined in Field Service Settings | Scheduling | Routing.</inlineHelpText>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>TypicalInTerritoryTravelTime</fullName>
@@ -214,5 +330,5 @@
         <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LastModifiedBy</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

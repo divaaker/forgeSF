@@ -192,11 +192,6 @@
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
-    <listViews>
-        <fullName>All_ContactPointEmails</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All Contact Point Emails</label>
-    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>EmailAddress</customTabListAdditionalFields>
         <customTabListAdditionalFields>ActiveFromDate</customTabListAdditionalFields>
