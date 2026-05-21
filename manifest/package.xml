@@ -11,6 +11,8 @@
         <members>ProfileAnalyzer</members>
         <members>ProjectUtil</members>
         <members>ProjectUtilTest</members>
+        <members>StringHelper</members>
+        <members>StringHelperTest</members>
         <name>ApexClass</name>
     </types>
     <types>
