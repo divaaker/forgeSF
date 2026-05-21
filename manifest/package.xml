@@ -9,7 +9,13 @@
         <members>BookControllerTest</members>
         <members>CaseUtils</members>
         <members>ProfileAnalyzer</members>
+        <members>ProjectUtil</members>
+        <members>ProjectUtilTest</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>ProjectTrigger</members>
+        <name>ApexTrigger</name>
     </types>
     <types>
         <members>BigTest__c.Currency01__c</members>
@@ -67,16 +73,25 @@
         <members>Book__c.Rating__c</members>
         <members>Book__c.Status__c</members>
         <members>Book__c.Title__c</members>
+        <members>ProjectConfig__mdt.DefaultBudget__c</members>
+        <members>ProjectConfig__mdt.DefaultStatus__c</members>
         <name>CustomField</name>
+    </types>
+    <types>
+        <members>ProjectConfig.Default</members>
+        <name>CustomMetadata</name>
     </types>
     <types>
         <members>BigTest__c</members>
         <members>Book__c</members>
+        <members>ProjectConfig__mdt</members>
+        <members>Project__c</members>
         <name>CustomObject</name>
     </types>
     <types>
         <members>BigTest__c</members>
         <members>Book__c</members>
+        <members>Project__c</members>
         <name>CustomTab</name>
     </types>
     <types>
@@ -95,6 +110,7 @@
     <types>
         <members>BigTest__c.All_Big_Tests</members>
         <members>Book__c.All_Books</members>
+        <members>Project__c.All_Projects</members>
         <name>ListView</name>
     </types>
     <types>
@@ -106,8 +122,16 @@
         <name>Profile</name>
     </types>
     <types>
+        <members>Project__c.Mark_Complete</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
         <members>BigTest__c</members>
         <name>SharingRules</name>
+    </types>
+    <types>
+        <members>ProjectStatusConfig</members>
+        <name>StaticResource</name>
     </types>
     <types>
         <members>Book__c.Rating_Required_When_Completed</members>
