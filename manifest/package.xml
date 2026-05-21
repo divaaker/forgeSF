@@ -5,6 +5,8 @@
         <members>AccountService</members>
         <members>AccountServiceTest</members>
         <members>BadApexDemo</members>
+        <members>BookController</members>
+        <members>BookControllerTest</members>
         <members>CaseUtils</members>
         <members>ProfileAnalyzer</members>
         <members>ProjectUtil</members>
