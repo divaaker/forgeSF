@@ -18,6 +18,10 @@
     <name>CustomObject</name>
   </types>
   <types>
+    <members>Book__c</members>
+    <name>CustomTab</name>
+  </types>
+  <types>
     <members>Book__c-Book Layout</members>
     <name>Layout</name>
   </types>
