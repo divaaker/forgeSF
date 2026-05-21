@@ -5,7 +5,7 @@ public with sharing class BookController {
         return [
             SELECT Id, Name, Title__c, Author__c, Rating__c, Status__c, DateFinished__c
             FROM Book__c
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             ORDER BY CreatedDate DESC
             LIMIT 200
         ];
