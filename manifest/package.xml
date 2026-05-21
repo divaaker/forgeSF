@@ -1,44 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
   <types>
-    <members>ProjectUtil</members>
-    <members>ProjectUtilTest</members>
-    <name>ApexClass</name>
-  </types>
-  <types>
-    <members>ProjectTrigger</members>
-    <name>ApexTrigger</name>
-  </types>
-  <types>
-    <members>Project__c.Budget__c</members>
-    <members>Project__c.Description__c</members>
-    <members>Project__c.EndDate__c</members>
-    <members>Project__c.Owner_Email__c</members>
-    <members>Project__c.StartDate__c</members>
-    <members>Project__c.Status__c</members>
-    <name>CustomField</name>
-  </types>
-  <types>
-    <members>ProjectConfig.Default</members>
-    <name>CustomMetadata</name>
-  </types>
-  <types>
-    <members>ProjectConfig__mdt</members>
     <members>Project__c</members>
-    <name>CustomObject</name>
+    <name>CustomTab</name>
   </types>
   <types>
-    <members>ProjectConfig__mdt-Project Config Layout</members>
-    <members>Project__c-Project Layout</members>
-    <name>Layout</name>
-  </types>
-  <types>
-    <members>Project__c.All_Projects</members>
-    <name>ListView</name>
-  </types>
-  <types>
-    <members>ProjectStatusConfig</members>
-    <name>StaticResource</name>
+    <members>Project__c.Mark_Complete</members>
+    <name>QuickAction</name>
   </types>
   <version>65.0</version>
 </Package>
