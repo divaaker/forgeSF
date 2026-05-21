@@ -75,6 +75,12 @@
         <members>Book__c.Title__c</members>
         <members>ProjectConfig__mdt.DefaultBudget__c</members>
         <members>ProjectConfig__mdt.DefaultStatus__c</members>
+        <members>Project__c.Budget__c</members>
+        <members>Project__c.Description__c</members>
+        <members>Project__c.EndDate__c</members>
+        <members>Project__c.Owner_Email__c</members>
+        <members>Project__c.StartDate__c</members>
+        <members>Project__c.Status__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -101,6 +107,8 @@
     <types>
         <members>BigTest__c-Big Test Layout</members>
         <members>Book__c-Book Layout</members>
+        <members>ProjectConfig__mdt-Project Config Layout</members>
+        <members>Project__c-Project Layout</members>
         <name>Layout</name>
     </types>
     <types>
