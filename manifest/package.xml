@@ -19,6 +19,7 @@
     <name>CustomMetadata</name>
   </types>
   <types>
+    <members>ProjectConfig__mdt</members>
     <members>Project__c</members>
     <name>CustomObject</name>
   </types>

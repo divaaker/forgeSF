@@ -21,4 +21,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <label>Project Config</label>
+    <pluralLabel>Project Configs</pluralLabel>
+    <visibility>Public</visibility>
 </CustomObject>
