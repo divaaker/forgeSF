@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
   <types>
-    <members>Project__c</members>
-    <name>CustomTab</name>
-  </types>
-  <types>
-    <members>Project__c.Mark_Complete</members>
-    <name>QuickAction</name>
+    <members>StringHelper</members>
+    <members>StringHelperTest</members>
+    <name>ApexClass</name>
   </types>
   <version>65.0</version>
 </Package>
