@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Book Tracker" icon-name="standard:book">
+        <div class="slds-p-around_medium">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="4" padding="around-small">
+                    <lightning-input label="Title" name="title" value={title} onchange={handleChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="4" padding="around-small">
+                    <lightning-input label="Author" name="author" value={author} onchange={handleChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" padding="around-small">
+                    <lightning-combobox
+                        label="Status"
+                        name="status"
+                        value={status}
+                        options={statusOptions}
+                        onchange={handleChange}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item size="1" padding="around-small" class="slds-align-bottom">
+                    <lightning-button label="Add" variant="brand" onclick={handleCreate}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <template lwc:if={error}>
+                <p class="slds-text-color_error slds-p-around_small">Could not load books.</p>
+            </template>
+
+            <lightning-datatable
+                key-field="Id"
+                data={books}
+                columns={columns}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
