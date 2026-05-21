@@ -5,6 +5,8 @@
         <members>AccountService</members>
         <members>AccountServiceTest</members>
         <members>BadApexDemo</members>
+        <members>BookController</members>
+        <members>BookControllerTest</members>
         <members>CaseUtils</members>
         <members>ProfileAnalyzer</members>
         <name>ApexClass</name>
@@ -60,14 +62,21 @@
         <members>BigTest__c.Url01__c</members>
         <members>BigTest__c.Url02__c</members>
         <members>BigTest__c.Url03__c</members>
+        <members>Book__c.Author__c</members>
+        <members>Book__c.DateFinished__c</members>
+        <members>Book__c.Rating__c</members>
+        <members>Book__c.Status__c</members>
+        <members>Book__c.Title__c</members>
         <name>CustomField</name>
     </types>
     <types>
         <members>BigTest__c</members>
+        <members>Book__c</members>
         <name>CustomObject</name>
     </types>
     <types>
         <members>BigTest__c</members>
+        <members>Book__c</members>
         <name>CustomTab</name>
     </types>
     <types>
@@ -76,11 +85,21 @@
     </types>
     <types>
         <members>BigTest__c-Big Test Layout</members>
+        <members>Book__c-Book Layout</members>
         <name>Layout</name>
     </types>
     <types>
+        <members>bookList</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
         <members>BigTest__c.All_Big_Tests</members>
+        <members>Book__c.All_Books</members>
         <name>ListView</name>
+    </types>
+    <types>
+        <members>BookTrackerUser</members>
+        <name>PermissionSet</name>
     </types>
     <types>
         <members>Admin</members>
@@ -89,6 +108,10 @@
     <types>
         <members>BigTest__c</members>
         <name>SharingRules</name>
+    </types>
+    <types>
+        <members>Book__c.Rating_Required_When_Completed</members>
+        <name>ValidationRule</name>
     </types>
     <version>65.0</version>
 </Package>
