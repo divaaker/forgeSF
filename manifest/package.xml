@@ -7,7 +7,13 @@
         <members>BadApexDemo</members>
         <members>CaseUtils</members>
         <members>ProfileAnalyzer</members>
+        <members>ProjectUtil</members>
+        <members>ProjectUtilTest</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>ProjectTrigger</members>
+        <name>ApexTrigger</name>
     </types>
     <types>
         <members>BigTest__c.Currency01__c</members>
@@ -60,14 +66,22 @@
         <members>BigTest__c.Url01__c</members>
         <members>BigTest__c.Url02__c</members>
         <members>BigTest__c.Url03__c</members>
+        <members>ProjectConfig__mdt.DefaultBudget__c</members>
+        <members>ProjectConfig__mdt.DefaultStatus__c</members>
         <name>CustomField</name>
     </types>
     <types>
+        <members>ProjectConfig.Default</members>
+        <name>CustomMetadata</name>
+    </types>
+    <types>
         <members>BigTest__c</members>
+        <members>Project__c</members>
         <name>CustomObject</name>
     </types>
     <types>
         <members>BigTest__c</members>
+        <members>Project__c</members>
         <name>CustomTab</name>
     </types>
     <types>
@@ -80,6 +94,7 @@
     </types>
     <types>
         <members>BigTest__c.All_Big_Tests</members>
+        <members>Project__c.All_Projects</members>
         <name>ListView</name>
     </types>
     <types>
@@ -87,8 +102,16 @@
         <name>Profile</name>
     </types>
     <types>
+        <members>Project__c.Mark_Complete</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
         <members>BigTest__c</members>
         <name>SharingRules</name>
+    </types>
+    <types>
+        <members>ProjectStatusConfig</members>
+        <name>StaticResource</name>
     </types>
     <version>65.0</version>
 </Package>
